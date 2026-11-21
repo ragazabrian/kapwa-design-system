@@ -1,0 +1,79 @@
+/**
+ * Kapwa Design System - Floating Pill Tab Bar
+ * Recreated from Figma: Node 895:15132
+ * Backdrop blur frosted glass pill with sliding active indicator
+ */
+.kw-tabbar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.kw-tabbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: var(--kw-color-glass-content);
+  border: 1.44px solid var(--kw-color-glass-stroke);
+  backdrop-filter: blur(23px);
+  -webkit-backdrop-filter: blur(23px);
+  border-radius: 43px;
+  box-shadow: var(--kw-shadow-tabbar);
+  height: 86px;
+  padding: 10px 14px;
+  gap: 16px;
+  max-width: 412px;
+  width: 100%;
+}
+
+/* Sliding Active Tab Background Pill */
+.kw-tabbar__indicator {
+  position: absolute;
+  top: 11px;
+  height: 64px;
+  width: 80px;
+  background-color: var(--kw-color-pricing-blue);
+  border-radius: 32px;
+  box-shadow: var(--kw-shadow-active-tab);
+  transition: transform var(--kw-transition-spring), width var(--kw-transition-spring);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.kw-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  border-radius: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  color: var(--kw-color-slate);
+  transition: color var(--kw-transition-fast), transform var(--kw-transition-fast);
+}
+
+.kw-tab svg {
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+  transition: stroke var(--kw-transition-fast);
+}
+
+.kw-tab:hover {
+  color: var(--kw-color-ink);
+}
+
+.kw-tab--active {
+  color: #ffffff !important;
+}
+
+.kw-tab--active svg {
+  stroke: #ffffff !important;
+}

@@ -1,0 +1,114 @@
+/**
+ * Kapwa Design System - Confirm Delivery Sheet & Modals
+ * Recreated from Figma: Node 895:15884
+ */
+.kw-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--kw-transition-normal);
+}
+
+.kw-sheet-backdrop--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.kw-sheet {
+  background-color: var(--kw-color-surface-card);
+  border-radius: 36px;
+  box-shadow: var(--kw-shadow-modal);
+  width: 90%;
+  max-width: 440px;
+  padding: 32px 28px;
+  transform: translateY(20px) scale(0.97);
+  transition: transform var(--kw-transition-spring);
+  position: relative;
+  overflow: hidden;
+}
+
+.kw-sheet-backdrop--open .kw-sheet {
+  transform: translateY(0) scale(1);
+}
+
+.kw-sheet__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.kw-sheet__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--kw-color-ink);
+}
+
+.kw-sheet__supplier-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--kw-color-studio-mist);
+  border-radius: 20px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+.kw-avatar-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #2fb8ff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.kw-sheet__details {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.kw-sheet__item-name {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--kw-color-ink);
+}
+
+.kw-sheet__item-meta {
+  font-size: 15px;
+  color: var(--kw-color-slate);
+  margin-top: 4px;
+}
+
+.kw-sheet__ticket-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--kw-color-studio-mist);
+  border-radius: 18px;
+  padding: 12px 18px;
+  margin: 20px 0;
+}
+
+.kw-ticket-icon-box {
+  width: 52px;
+  height: 38px;
+  background-color: #2f6bff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}

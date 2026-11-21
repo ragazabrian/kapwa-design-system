@@ -1,0 +1,70 @@
+/**
+ * Kapwa Design System - Chips & Badges
+ * Recreated from Figma status chips (Gate A, Late, Approved, Filters)
+ */
+.kw-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--kw-radius-chip);
+  font-family: var(--kw-font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  user-select: none;
+  white-space: nowrap;
+  transition: all var(--kw-transition-fast);
+}
+
+/* Status: Gate A / Blue */
+.kw-chip--gate {
+  background-color: var(--kw-color-chip-gate-bg);
+  color: var(--kw-color-chip-gate-text);
+}
+
+/* Status: Late / Risk Red */
+.kw-chip--late {
+  background-color: var(--kw-color-chip-late-bg);
+  color: var(--kw-color-chip-late-text);
+}
+
+/* Status: Approved / Green */
+.kw-chip--approved {
+  background-color: var(--kw-color-chip-approved-bg);
+  color: var(--kw-color-chip-approved-text);
+}
+
+/* Filter Chip with remove icon */
+.kw-chip--filter {
+  background-color: var(--kw-color-studio-mist);
+  color: var(--kw-color-ink);
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.kw-chip--filter:hover {
+  background-color: var(--kw-color-control-gray);
+}
+
+.kw-chip__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--kw-transition-fast);
+}
+
+.kw-chip__remove:hover {
+  opacity: 1;
+}
+
+.kw-chip__remove svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}

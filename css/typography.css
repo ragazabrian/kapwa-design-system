@@ -1,0 +1,100 @@
+/**
+ * Kapwa Design System - Typography Classes
+ */
+.kw-display-lg {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-display-lg-size);
+  line-height: var(--kw-type-display-lg-line);
+  font-weight: var(--kw-type-display-lg-weight);
+  letter-spacing: var(--kw-type-display-lg-tracking);
+  color: var(--kw-color-ink);
+}
+
+.kw-display-md {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-display-md-size);
+  line-height: var(--kw-type-display-md-line);
+  font-weight: var(--kw-type-display-md-weight);
+  letter-spacing: var(--kw-type-display-md-tracking);
+  color: var(--kw-color-ink);
+}
+
+.kw-h1 {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-h1-size);
+  line-height: var(--kw-type-h1-line);
+  font-weight: var(--kw-type-h1-weight);
+  color: var(--kw-color-ink);
+}
+
+.kw-h2 {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-h2-size);
+  line-height: var(--kw-type-h2-line);
+  font-weight: var(--kw-type-h2-weight);
+  color: var(--kw-color-ink);
+}
+
+.kw-h3 {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-h3-size);
+  line-height: var(--kw-type-h3-line);
+  font-weight: var(--kw-type-h3-weight);
+  color: var(--kw-color-ink);
+}
+
+.kw-h4 {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-h4-size);
+  line-height: var(--kw-type-h4-line);
+  font-weight: var(--kw-type-h4-weight);
+  color: var(--kw-color-ink);
+}
+
+.kw-b1 {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-b1-size);
+  line-height: var(--kw-type-b1-line);
+  font-weight: var(--kw-type-b1-weight);
+  color: var(--kw-color-ink);
+}
+
+.kw-b2 {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-b2-size);
+  line-height: var(--kw-type-b2-line);
+  font-weight: var(--kw-type-b2-weight);
+  color: var(--kw-color-ink);
+}
+
+.kw-caption {
+  font-family: var(--kw-font-sans);
+  font-size: var(--kw-type-caption-size);
+  line-height: var(--kw-type-caption-line);
+  font-weight: var(--kw-type-caption-weight);
+  color: var(--kw-color-slate);
+}
+
+.kw-text-slate {
+  color: var(--kw-color-slate);
+}
+
+.kw-text-ink {
+  color: var(--kw-color-ink);
+}
+
+.kw-text-primary {
+  color: var(--kw-color-pricing-blue);
+}
+
+.kw-text-destructive {
+  color: var(--kw-color-risk-red);
+}
+
+.kw-divider {
+  height: 2px;
+  background-color: var(--kw-color-hairline);
+  border: none;
+  margin: var(--kw-space-md) 0;
+  width: 100%;
+}

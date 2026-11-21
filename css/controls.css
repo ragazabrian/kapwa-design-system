@@ -1,0 +1,176 @@
+/**
+ * Kapwa Design System - Form Controls
+ * Switches, Checkboxes, Radios
+ */
+
+/* ==========================================================================
+   Switch (Toggle)
+   ========================================================================== */
+.kw-switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.kw-switch input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.kw-switch__track {
+  width: 57.2px;
+  height: 35.2px;
+  background-color: var(--kw-color-control-gray);
+  border-radius: 9999px;
+  position: relative;
+  transition: background-color var(--kw-transition-normal);
+  flex-shrink: 0;
+}
+
+.kw-switch__thumb {
+  position: absolute;
+  top: 2.6px;
+  left: 2.6px;
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transition: transform var(--kw-transition-spring);
+}
+
+.kw-switch input:checked + .kw-switch__track {
+  background-color: var(--kw-color-pricing-blue);
+}
+
+.kw-switch input:checked + .kw-switch__track .kw-switch__thumb {
+  transform: translateX(22px);
+}
+
+.kw-switch input:focus-visible + .kw-switch__track {
+  outline: 2px solid var(--kw-color-pricing-blue);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Checkbox
+   ========================================================================== */
+.kw-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.kw-checkbox input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.kw-checkbox__box {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 3px solid var(--kw-color-pricing-blue);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--kw-transition-fast);
+  flex-shrink: 0;
+}
+
+.kw-checkbox__icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  stroke: #ffffff;
+  stroke-width: 3;
+  fill: none;
+  transition: opacity var(--kw-transition-fast), transform var(--kw-transition-fast);
+  transform: scale(0.6);
+}
+
+.kw-checkbox input:checked + .kw-checkbox__box {
+  background-color: var(--kw-color-pricing-blue);
+}
+
+.kw-checkbox input:checked + .kw-checkbox__box .kw-checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Indeterminate Dash */
+.kw-checkbox input:indeterminate + .kw-checkbox__box {
+  background-color: var(--kw-color-pricing-blue);
+}
+
+.kw-checkbox input:indeterminate + .kw-checkbox__box .kw-checkbox__dash {
+  width: 14px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  display: block;
+}
+
+/* ==========================================================================
+   Radio Button
+   ========================================================================== */
+.kw-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.kw-radio input[type="radio"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.kw-radio__disc {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid var(--kw-color-pricing-blue);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--kw-transition-fast);
+  flex-shrink: 0;
+}
+
+.kw-radio__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--kw-color-pricing-blue);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all var(--kw-transition-fast);
+}
+
+.kw-radio input:checked + .kw-radio__disc .kw-radio__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kw-radio input:focus-visible + .kw-radio__disc,
+.kw-checkbox input:focus-visible + .kw-checkbox__box {
+  outline: 2px solid var(--kw-color-pricing-blue);
+  outline-offset: 2px;
+}

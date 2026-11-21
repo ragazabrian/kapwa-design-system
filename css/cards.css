@@ -1,0 +1,54 @@
+/**
+ * Kapwa Design System - Cards
+ * High visual fidelity cards with rounded 44px corners and subtle elevation
+ */
+.kw-card {
+  background-color: var(--kw-color-surface-card);
+  border-radius: var(--kw-radius-card);
+  box-shadow: var(--kw-shadow-card);
+  padding: var(--kw-space-xl);
+  overflow: hidden;
+  position: relative;
+  transition: transform var(--kw-transition-normal), box-shadow var(--kw-transition-normal), background-color var(--kw-transition-normal);
+}
+
+.kw-card--interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kw-shadow-card-hover);
+}
+
+.kw-card--sm {
+  border-radius: var(--kw-radius-card-sm);
+  padding: var(--kw-space-lg);
+}
+
+.kw-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--kw-space-lg);
+}
+
+.kw-card__title {
+  font-size: var(--kw-type-h3-size);
+  font-weight: 600;
+  line-height: var(--kw-type-h3-line);
+  color: var(--kw-color-ink);
+}
+
+.kw-card__subtitle {
+  font-size: var(--kw-type-b2-size);
+  color: var(--kw-color-slate);
+}
+
+.kw-card__body {
+  position: relative;
+}
+
+.kw-card__footer {
+  margin-top: var(--kw-space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--kw-space-sm);
+}

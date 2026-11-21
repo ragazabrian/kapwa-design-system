@@ -1,0 +1,186 @@
+/**
+ * Kapwa Design System - Design Tokens
+ * Recreated from Figma: Brian's Playground (Construction · Mobile component sheet)
+ * Supports Light & Dark themes, high-contrast, and responsive scales.
+ */
+
+:root {
+  /* ==========================================================================
+     Color Palette - Light Theme (Default)
+     ========================================================================== */
+  --kw-color-pricing-blue: #0071e3;
+  --kw-color-pricing-blue-hover: #0077ed;
+  --kw-color-pricing-blue-active: #0062c4;
+  --kw-color-pricing-blue-focus: rgba(0, 113, 227, 0.35);
+
+  --kw-color-apple-blue: #0066cc;
+  --kw-color-apple-blue-hover: #0077ed;
+  --kw-color-apple-blue-active: #0055b3;
+
+  --kw-color-risk-red: #d70015;
+  --kw-color-risk-red-hover: #e01a2c;
+  --kw-color-risk-red-active: #b80012;
+
+  --kw-color-warning-amber: #f59e0b;
+  --kw-color-warning-amber-bg: #fffbeb;
+  --kw-color-warning-amber-text: #b45309;
+
+  --kw-color-success-green: #34c759;
+  --kw-color-success-green-bg: #e8f5e9;
+  --kw-color-success-green-text: #1b5e20;
+
+  --kw-color-primary-purple: #5536d9;
+  --kw-color-surface-purple-container: #e2dcf2;
+
+  --kw-color-ink: #1d1d1f;
+  --kw-color-slate: #5f5f64;
+  --kw-color-hairline: #d6d6d6;
+  --kw-color-hairline-subtle: #e5e5ea;
+  --kw-color-studio-mist: #f5f5f7;
+  --kw-color-control-gray: #e6e6e8;
+
+  --kw-color-bg-canvas: #f2f4f8;
+  --kw-color-surface-card: #ffffff;
+  --kw-color-surface-muted: #fbfbfd;
+
+  --kw-color-on-primary: #ffffff;
+  --kw-color-on-destructive: #ffffff;
+
+  /* Glassmorphism Tokens */
+  --kw-color-glass-fill: rgba(255, 255, 255, 0.58);
+  --kw-color-glass-content: rgba(255, 255, 255, 0.85);
+  --kw-color-glass-stroke: rgba(255, 255, 255, 0.75);
+
+  /* Status Chips */
+  --kw-color-chip-gate-bg: #e8f3ff;
+  --kw-color-chip-gate-text: #0071e3;
+  --kw-color-chip-late-bg: #fee2e2;
+  --kw-color-chip-late-text: #d70015;
+  --kw-color-chip-approved-bg: #e8f5e9;
+  --kw-color-chip-approved-text: #2e7d32;
+
+  /* ==========================================================================
+     Typography System (Inter & Apple System)
+     ========================================================================== */
+  --kw-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  --kw-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Display Large */
+  --kw-type-display-lg-size: 44px;
+  --kw-type-display-lg-line: 1.15;
+  --kw-type-display-lg-weight: 600;
+  --kw-type-display-lg-tracking: -1.1px;
+
+  /* Display Medium */
+  --kw-type-display-md-size: 40px;
+  --kw-type-display-md-line: 1.15;
+  --kw-type-display-md-weight: 500;
+  --kw-type-display-md-tracking: -1.0px;
+
+  /* Headings */
+  --kw-type-h1-size: 28px;
+  --kw-type-h1-line: 34px;
+  --kw-type-h1-weight: 600;
+
+  --kw-type-h2-size: 25px;
+  --kw-type-h2-line: 31px;
+  --kw-type-h2-weight: 600;
+
+  --kw-type-h3-size: 22px;
+  --kw-type-h3-line: 28px;
+  --kw-type-h3-weight: 600;
+
+  --kw-type-h4-size: 20px;
+  --kw-type-h4-line: 26px;
+  --kw-type-h4-weight: 600;
+
+  /* Body & Paragraphs */
+  --kw-type-b1-size: 16px;
+  --kw-type-b1-line: 22px;
+  --kw-type-b1-weight: 500;
+
+  --kw-type-b2-size: 15px;
+  --kw-type-b2-line: 21px;
+  --kw-type-b2-weight: 500;
+
+  /* Interactive Elements */
+  --kw-type-button-size: 15px;
+  --kw-type-button-line: 21px;
+  --kw-type-button-weight: 500;
+
+  --kw-type-caption-size: 13px;
+  --kw-type-caption-line: 19px;
+  --kw-type-caption-weight: 500;
+
+  /* ==========================================================================
+     Elevation & Shadows
+     ========================================================================== */
+  --kw-shadow-card: 0px 8px 28px 0px rgba(13, 18, 38, 0.05);
+  --kw-shadow-card-hover: 0px 14px 34px 0px rgba(13, 18, 38, 0.08);
+  --kw-shadow-button-primary: 0px 8px 12px rgba(13, 18, 38, 0.25);
+  --kw-shadow-tabbar: 0px 14.4px 20.2px rgba(13, 18, 38, 0.1);
+  --kw-shadow-active-tab: 0px 8.6px 20.2px 0px rgba(107, 77, 255, 0.45);
+  --kw-shadow-modal: 0px 24px 48px -12px rgba(0, 0, 0, 0.25);
+
+  /* ==========================================================================
+     Radii
+     ========================================================================== */
+  --kw-radius-card: 44px;
+  --kw-radius-card-sm: 34px;
+  --kw-radius-tile: 24px;
+  --kw-radius-button: 9999px; /* Pill */
+  --kw-radius-input: 12px;
+  --kw-radius-chip: 9999px;
+  --kw-radius-full: 9999px;
+
+  /* ==========================================================================
+     Spacing Scale
+     ========================================================================== */
+  --kw-space-xs: 4px;
+  --kw-space-sm: 8px;
+  --kw-space-md: 12px;
+  --kw-space-lg: 16px;
+  --kw-space-xl: 24px;
+  --kw-space-2xl: 32px;
+  --kw-space-3xl: 48px;
+
+  /* ==========================================================================
+     Transitions
+     ========================================================================== */
+  --kw-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --kw-transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --kw-transition-spring: 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==========================================================================
+   Dark Theme Overrides
+   ========================================================================== */
+[data-theme="dark"] {
+  --kw-color-ink: #f5f5f7;
+  --kw-color-slate: #98989d;
+  --kw-color-hairline: rgba(255, 255, 255, 0.12);
+  --kw-color-hairline-subtle: rgba(255, 255, 255, 0.08);
+  --kw-color-studio-mist: #1c1c1e;
+  --kw-color-control-gray: #38383a;
+
+  --kw-color-bg-canvas: #090b10;
+  --kw-color-surface-card: #151821;
+  --kw-color-surface-muted: #1e222e;
+
+  /* Dark Glass */
+  --kw-color-glass-fill: rgba(28, 32, 44, 0.65);
+  --kw-color-glass-content: rgba(21, 24, 33, 0.82);
+  --kw-color-glass-stroke: rgba(255, 255, 255, 0.12);
+
+  /* Status Chips */
+  --kw-color-chip-gate-bg: rgba(0, 113, 227, 0.2);
+  --kw-color-chip-gate-text: #4da6ff;
+  --kw-color-chip-late-bg: rgba(215, 0, 21, 0.25);
+  --kw-color-chip-late-text: #ff6b77;
+  --kw-color-chip-approved-bg: rgba(52, 199, 89, 0.2);
+  --kw-color-chip-approved-text: #5fe682;
+
+  --kw-shadow-card: 0px 8px 32px 0px rgba(0, 0, 0, 0.45);
+  --kw-shadow-card-hover: 0px 14px 40px 0px rgba(0, 0, 0, 0.6);
+  --kw-shadow-tabbar: 0px 14.4px 24px rgba(0, 0, 0, 0.5);
+}

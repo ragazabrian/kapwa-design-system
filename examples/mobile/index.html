@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapwa Design System · Mobile Component Sheet</title>
+  <link rel="stylesheet" href="../../css/kapwa.css">
+  <style>
+    body {
+      background-color: var(--kw-color-bg-canvas);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .mobile-frame-container {
+      width: 100%;
+      max-width: 440px;
+      background-color: var(--kw-color-bg-canvas);
+      border-radius: 48px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      border: 8px solid var(--kw-color-surface-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .mobile-header-bar {
+      padding: 16px 24px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--kw-color-bg-canvas);
+    }
+
+    .mobile-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+      max-height: 820px;
+    }
+
+    /* Quick Actions */
+    .kw-quick-actions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .kw-quick-action {
+      background-color: var(--kw-color-surface-card);
+      border-radius: 20px;
+      padding: 16px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: var(--kw-shadow-card);
+      transition: transform var(--kw-transition-fast);
+    }
+
+    .kw-quick-action:hover {
+      transform: translateY(-2px);
+    }
+
+    .kw-quick-action svg {
+      width: 28px;
+      height: 28px;
+      color: var(--kw-color-pricing-blue);
+    }
+
+    .kw-quick-action__label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--kw-color-ink);
+    }
+
+    /* Avatars Row */
+    .kw-avatar-row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .kw-avatar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .kw-avatar-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: var(--kw-color-studio-mist);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--kw-color-ink);
+      border: 2px solid transparent;
+      transition: all var(--kw-transition-fast);
+    }
+
+    .kw-avatar-circle:hover {
+      border-color: var(--kw-color-pricing-blue);
+      transform: scale(1.05);
+    }
+
+    .kw-avatar-name {
+      font-size: 12px;
+      color: var(--kw-color-slate);
+      font-weight: 500;
+    }
+
+    /* Supplier Row */
+    .kw-supplier-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--kw-color-hairline-subtle);
+    }
+
+    .kw-supplier-row:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-bottom-nav {
+      position: sticky;
+      bottom: 0;
+      padding: 8px 16px 16px;
+      background: linear-gradient(to top, var(--kw-color-bg-canvas) 80%, transparent);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls Bar -->
+  <div style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center;">
+    <span class="kw-h4">Kapwa Mobile Preview</span>
+    <button class="kw-btn kw-btn--outline kw-btn--sm" onclick="KapwaTheme.toggle()">
+      Toggle Light / Dark
+    </button>
+    <a href="../../index.html" class="kw-btn kw-btn--ghost kw-btn--sm">← Back to Docs</a>
+  </div>
+
+  <!-- Mobile Viewport Frame -->
+  <div class="mobile-frame-container">
+    <div class="mobile-header-bar">
+      <div>
+        <p class="kw-caption" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Brix Construction · Gate Lead</p>
+        <h2 class="kw-h3" style="font-size: 20px;">Good morning, Brian</h2>
+      </div>
+      <button class="kw-btn kw-btn--outline kw-btn--sm" style="padding: 0 12px; height: 32px;" onclick="Kapwa.openSheet()">
+        Confirm
+      </button>
+    </div>
+
+    <div class="mobile-content">
+      <!-- 1. KPI Cards Row -->
+      <div class="kw-kpi-grid">
+        <div class="kw-kpi-card" style="min-height: 150px; padding: 16px;">
+          <div class="kw-kpi-card__icon-wrapper" style="width: 44px; height: 44px;">
+            <span id="icon-truck-placeholder"></span>
+          </div>
+          <div>
+            <div class="kw-kpi-card__value" style="font-size: 28px;">10</div>
+            <div class="kw-kpi-card__label">Arriving today</div>
+          </div>
+        </div>
+
+        <div class="kw-kpi-card" style="min-height: 150px; padding: 16px;">
+          <div class="kw-kpi-card__icon-wrapper" style="width: 44px; height: 44px;">
+            <span id="icon-clock-placeholder"></span>
+          </div>
+          <div>
+            <div class="kw-kpi-card__value" style="font-size: 28px;">8</div>
+            <div class="kw-kpi-card__label">Pending approvals</div>
+          </div>
+        </div>
+
+        <div class="kw-kpi-card" style="min-height: 150px; padding: 16px;">
+          <div class="kw-kpi-card__icon-wrapper" style="width: 44px; height: 44px;">
+            <span id="icon-alert-placeholder"></span>
+          </div>
+          <div>
+            <div class="kw-kpi-card__value" style="font-size: 28px; color: var(--kw-color-risk-red);">2</div>
+            <div class="kw-kpi-card__label">At risk</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Quick Actions -->
+      <div class="kw-quick-actions-grid">
+        <div class="kw-quick-action" onclick="alert('Open Schedule')">
+          <span id="icon-cal-placeholder"></span>
+          <span class="kw-quick-action__label">Schedule</span>
+        </div>
+        <div class="kw-quick-action" onclick="alert('Scan Ticket')">
+          <span id="icon-scan-placeholder"></span>
+          <span class="kw-quick-action__label">Scan ticket</span>
+        </div>
+        <div class="kw-quick-action" onclick="alert('Reroute Gates')">
+          <span id="icon-reroute-placeholder"></span>
+          <span class="kw-quick-action__label">Reroute</span>
+        </div>
+        <div class="kw-quick-action" onclick="alert('More Actions')">
+          <span id="icon-more-placeholder"></span>
+          <span class="kw-quick-action__label">More</span>
+        </div>
+      </div>
+
+      <!-- 3. Deliveries List Card -->
+      <div class="kw-card" style="padding: 20px;">
+        <div class="kw-card__header" style="margin-bottom: 12px;">
+          <h3 class="kw-card__title" style="font-size: 18px;">Deliveries list</h3>
+          <span class="kw-chip kw-chip--filter">Today</span>
+        </div>
+
+        <!-- Item 1 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;">
+          <div>
+            <div class="kw-b1" style="font-weight: 700;">Chiller CH-3</div>
+            <div class="kw-caption">Today, 09:00</div>
+          </div>
+          <span class="kw-chip kw-chip--gate">Gate A</span>
+        </div>
+        <div class="kw-divider"></div>
+
+        <!-- Item 2 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;">
+          <div>
+            <div class="kw-b1" style="font-weight: 700;">Switchgear SWGR-1A</div>
+            <div class="kw-caption" style="color: var(--kw-color-risk-red);">Delayed 2 days</div>
+          </div>
+          <span class="kw-chip kw-chip--late">Late</span>
+        </div>
+        <div class="kw-divider"></div>
+
+        <!-- Item 3 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;">
+          <div>
+            <div class="kw-b1" style="font-weight: 700;">Fire alarm FACP-1</div>
+            <div class="kw-caption">Dock 2 · 08:00</div>
+          </div>
+          <span class="kw-chip kw-chip--approved">Approved</span>
+        </div>
+        <div class="kw-divider"></div>
+
+        <!-- Auto-confirm Switch -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+          <div>
+            <div class="kw-b2" style="font-weight: 600;">Auto-confirm deliveries</div>
+            <div class="kw-caption">Only from approved suppliers</div>
+          </div>
+          <kapwa-switch checked></kapwa-switch>
+        </div>
+      </div>
+
+      <!-- 4. Buttons Showcase Card -->
+      <div class="kw-card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+        <h3 class="kw-card__title" style="font-size: 18px; margin-bottom: 4px;">Pill Actions</h3>
+        <button class="kw-btn kw-btn--primary kw-btn--full" onclick="Kapwa.openSheet()">Approve</button>
+        <button class="kw-btn kw-btn--outline kw-btn--full">Reschedule</button>
+        <button class="kw-btn kw-btn--ghost kw-btn--full">View all deliveries</button>
+        <button class="kw-btn kw-btn--destructive kw-btn--full">Reject</button>
+      </div>
+
+      <!-- 5. Interactive Deliveries Chart Card -->
+      <div class="kw-chart-card">
+        <h3 class="kw-h4" style="margin-bottom: 4px;">142 deliveries</h3>
+        <p class="kw-caption" style="margin-bottom: 16px;">Delivery performance overview</p>
+
+        <div class="kw-range-selector">
+          <div class="kw-range-btn">1W</div>
+          <div class="kw-range-btn">1M</div>
+          <div class="kw-range-btn kw-range-btn--active">3M</div>
+          <div class="kw-range-btn">6M</div>
+          <div class="kw-range-btn">1Y</div>
+        </div>
+
+        <div class="kw-bar-chart">
+          <div class="kw-bar-col">
+            <div class="kw-bar" style="height: 110px;"></div>
+            <div class="kw-bar-label">Jun</div>
+          </div>
+          <div class="kw-bar-col">
+            <div class="kw-bar" style="height: 65px;"></div>
+            <div class="kw-bar-label">Jul</div>
+          </div>
+          <div class="kw-bar-col">
+            <div class="kw-bar" style="height: 90px;"></div>
+            <div class="kw-bar-label">Aug</div>
+          </div>
+          <div class="kw-bar-col kw-bar-col--selected">
+            <div class="kw-bar" style="height: 126px;"></div>
+            <div class="kw-bar-label">Sep</div>
+          </div>
+          <div class="kw-bar-col">
+            <div class="kw-bar" style="height: 75px;"></div>
+            <div class="kw-bar-label">Oct</div>
+          </div>
+          <div class="kw-bar-col">
+            <div class="kw-bar" style="height: 130px;"></div>
+            <div class="kw-bar-label">Nov</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px;">
+          <div class="kw-card kw-card--sm" style="flex: 1; padding: 12px; background-color: var(--kw-color-studio-mist);">
+            <div class="kw-caption">On time</div>
+            <div class="kw-h3" style="font-size: 20px;">118</div>
+          </div>
+          <div class="kw-card kw-card--sm" style="flex: 1; padding: 12px; background-color: var(--kw-color-studio-mist);">
+            <div class="kw-caption">Late</div>
+            <div class="kw-h3" style="font-size: 20px; color: var(--kw-color-risk-red);">24</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Message Again Row -->
+      <div class="kw-card" style="padding: 20px;">
+        <h3 class="kw-card__title" style="font-size: 18px; margin-bottom: 16px;">Message again</h3>
+        <div class="kw-avatar-row">
+          <div class="kw-avatar-item">
+            <div class="kw-avatar-circle" style="background-color: #2fb8ff; color: #fff;">TR</div>
+            <div class="kw-avatar-name">Trane</div>
+          </div>
+          <div class="kw-avatar-item">
+            <div class="kw-avatar-circle" style="background-color: #34c759; color: #fff;">SE</div>
+            <div class="kw-avatar-name">Schneider</div>
+          </div>
+          <div class="kw-avatar-item">
+            <div class="kw-avatar-circle" style="background-color: #5536d9; color: #fff;">VT</div>
+            <div class="kw-avatar-name">Vertiv</div>
+          </div>
+          <div class="kw-avatar-item">
+            <div class="kw-avatar-circle" style="background-color: #ff9500; color: #fff;">AB</div>
+            <div class="kw-avatar-name">ABB</div>
+          </div>
+          <div class="kw-avatar-item">
+            <div class="kw-avatar-circle" style="border: 2px dashed var(--kw-color-slate); background: transparent;">+</div>
+            <div class="kw-avatar-name">Add</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Crane Window & Phase Goals -->
+      <div class="kw-card" style="padding: 20px;">
+        <h3 class="kw-card__title" style="font-size: 18px; margin-bottom: 4px;">TC-1 Crane Window</h3>
+        <p class="kw-caption" style="margin-bottom: 12px;">Used 4h 10m of 6h · Steel L3 at 10:00</p>
+        <div class="kw-progress-linear" style="margin-bottom: 24px;">
+          <div class="kw-progress-linear__bar" style="width: 60%;"></div>
+        </div>
+
+        <h3 class="kw-card__title" style="font-size: 16px; margin-bottom: 12px;">Phase Goals</h3>
+        <div style="display: flex; justify-content: space-around; align-items: center;">
+          <div style="text-align: center;">
+            <div class="kw-progress-radial">
+              <svg viewBox="0 0 100 100">
+                <circle class="kw-progress-radial__bg" cx="50" cy="50" r="40"></circle>
+                <circle class="kw-progress-radial__meter" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="0"></circle>
+              </svg>
+              <div class="kw-progress-radial__text">100%</div>
+            </div>
+            <p class="kw-caption" style="margin-top: 6px; font-weight: 600;">Phase 1</p>
+          </div>
+
+          <div style="text-align: center;">
+            <div class="kw-progress-radial">
+              <svg viewBox="0 0 100 100">
+                <circle class="kw-progress-radial__bg" cx="50" cy="50" r="40"></circle>
+                <circle class="kw-progress-radial__meter" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="95.4"></circle>
+              </svg>
+              <div class="kw-progress-radial__text">62%</div>
+            </div>
+            <p class="kw-caption" style="margin-top: 6px; font-weight: 600;">Phase 2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Floating Bottom Dock Navigation -->
+    <div class="mobile-bottom-nav">
+      <kapwa-tabbar active-index="0"></kapwa-tabbar>
+    </div>
+  </div>
+
+  <!-- Confirm Delivery Modal Sheet (from Figma 895:15884) -->
+  <div id="confirm-delivery-sheet" class="kw-sheet-backdrop">
+    <div class="kw-sheet">
+      <div class="kw-sheet__header">
+        <h3 class="kw-sheet__title">Confirm delivery</h3>
+      </div>
+
+      <div class="kw-sheet__supplier-card">
+        <div class="kw-avatar-badge">TR</div>
+        <div>
+          <div class="kw-b1" style="font-weight: 700;">Luis Romero</div>
+          <div class="kw-caption">Trane · PO 4471-08</div>
+        </div>
+      </div>
+
+      <div class="kw-sheet__details">
+        <div class="kw-sheet__item-name">Chiller CH-3</div>
+        <div class="kw-sheet__item-meta">Gate A · Tue 09:00</div>
+      </div>
+
+      <!-- Step Indicator -->
+      <div class="kw-step-indicator" style="margin-bottom: 20px;">
+        <div class="kw-step-segment kw-step-segment--active"></div>
+        <div class="kw-step-segment kw-step-segment--active"></div>
+        <div class="kw-step-segment"></div>
+      </div>
+
+      <!-- Ticket Row -->
+      <div class="kw-sheet__ticket-row">
+        <div class="kw-ticket-icon-box">PDF</div>
+        <div>
+          <div class="kw-b2" style="font-weight: 700;">Delivery ticket</div>
+          <div class="kw-caption">DT-2291 · attached</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 12px 0 20px;">
+        <a href="#" class="kw-caption" style="color: var(--kw-color-apple-blue); font-weight: 600;">+ Add note</a>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="kw-btn kw-btn--dark kw-btn--full" onclick="alert('Delivery Confirmed!'); Kapwa.closeSheet();">
+          Confirm
+        </button>
+        <button class="kw-btn kw-btn--outline" onclick="Kapwa.closeSheet()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="../../js/kapwa.js"></script>
+  <script type="module">
+    import KapwaIcons from '../../js/utils/icons.js';
+
+    document.getElementById('icon-truck-placeholder').innerHTML = KapwaIcons.get('truck', 24);
+    document.getElementById('icon-clock-placeholder').innerHTML = KapwaIcons.get('clock', 24);
+    document.getElementById('icon-alert-placeholder').innerHTML = KapwaIcons.get('alert', 24);
+    document.getElementById('icon-cal-placeholder').innerHTML = KapwaIcons.get('calendar', 26);
+    document.getElementById('icon-scan-placeholder').innerHTML = KapwaIcons.get('table', 26);
+    document.getElementById('icon-reroute-placeholder').innerHTML = KapwaIcons.get('refresh', 26);
+    document.getElementById('icon-more-placeholder').innerHTML = KapwaIcons.get('more', 26);
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/**
+ * Kapwa Design System - KPI & Metric Cards
+ * Recreated from Figma: 10 Arriving today, 8 Pending approvals, 2 At risk
+ */
+.kw-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.kw-kpi-card {
+  background-color: var(--kw-color-surface-card);
+  border-radius: 28px;
+  box-shadow: var(--kw-shadow-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: transform var(--kw-transition-normal), box-shadow var(--kw-transition-normal);
+}
+
+.kw-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kw-shadow-card-hover);
+}
+
+.kw-kpi-card__icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background-color: var(--kw-color-studio-mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kw-color-ink);
+}
+
+.kw-kpi-card__icon-wrapper svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+.kw-kpi-card__value {
+  font-family: var(--kw-font-sans);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--kw-color-ink);
+  margin-top: 16px;
+}
+
+.kw-kpi-card__label {
+  font-family: var(--kw-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--kw-color-slate);
+  margin-top: 6px;
+  line-height: 1.3;
+}

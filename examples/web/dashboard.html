@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapwa Design System · Web Operations Portal</title>
+  <link rel="stylesheet" href="../../css/kapwa.css">
+  <style>
+    body {
+      background-color: var(--kw-color-bg-canvas);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portal-nav {
+      background-color: var(--kw-color-surface-card);
+      border-bottom: 1px solid var(--kw-color-hairline);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .portal-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .portal-nav__logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--kw-color-pricing-blue), var(--kw-color-primary-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .portal-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr 340px;
+      gap: 24px;
+      padding: 32px;
+      max-width: 1540px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    @media (max-width: 1100px) {
+      .portal-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .portal-sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .portal-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      color: var(--kw-color-slate);
+      font-weight: 600;
+      transition: all var(--kw-transition-fast);
+      text-decoration: none;
+    }
+
+    .portal-nav-link:hover {
+      background-color: var(--kw-color-studio-mist);
+      color: var(--kw-color-ink);
+      text-decoration: none;
+    }
+
+    .portal-nav-link--active {
+      background-color: var(--kw-color-chip-gate-bg);
+      color: var(--kw-color-pricing-blue);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="portal-nav">
+    <div class="portal-nav__brand">
+      <div class="portal-nav__logo">K</div>
+      <div>
+        <h1 class="kw-h3" style="font-size: 18px; line-height: 1.2;">BetterGov · Operations Desk</h1>
+        <p class="kw-caption" style="font-size: 11px;">Powered by Kapwa Design System</p>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button class="kw-btn kw-btn--outline kw-btn--sm" onclick="KapwaTheme.toggle()">
+        Toggle Theme
+      </button>
+      <a href="../../index.html" class="kw-btn kw-btn--ghost kw-btn--sm">
+        Design System Docs
+      </a>
+      <button class="kw-btn kw-btn--primary kw-btn--sm" onclick="Kapwa.openSheet()">
+        + New Delivery
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Three-Column Portal Grid -->
+  <div class="portal-layout">
+
+    <!-- Column 1: Sidebar -->
+    <aside>
+      <div class="kw-card" style="padding: 20px;">
+        <h3 class="kw-card__title" style="font-size: 16px; margin-bottom: 16px;">Navigation</h3>
+        <nav class="portal-sidebar-nav">
+          <a href="#" class="portal-nav-link portal-nav-link--active">
+            <span id="side-home"></span> Overview
+          </a>
+          <a href="#" class="portal-nav-link">
+            <span id="side-deliveries"></span> Deliveries
+          </a>
+          <a href="#" class="portal-nav-link">
+            <span id="side-suppliers"></span> Suppliers
+          </a>
+          <a href="#" class="portal-nav-link">
+            <span id="side-map"></span> Site Map
+          </a>
+          <a href="#" class="portal-nav-link">
+            <span id="side-audit"></span> Audit Logs
+          </a>
+        </nav>
+      </div>
+
+      <div class="kw-card" style="padding: 20px; margin-top: 20px;">
+        <h3 class="kw-card__title" style="font-size: 15px; margin-bottom: 8px;">Active Project</h3>
+        <p class="kw-b2" style="font-weight: 700;">Sublevel Facility Delta</p>
+        <p class="kw-caption" style="margin-bottom: 14px;">Ashburn, VA · Site #2</p>
+        <span class="kw-chip kw-chip--approved">Operational</span>
+      </div>
+    </aside>
+
+    <!-- Column 2: Main Workspace -->
+    <main style="display: flex; flex-direction: column; gap: 24px;">
+
+      <!-- KPI Metrics -->
+      <div class="kw-kpi-grid">
+        <div class="kw-kpi-card">
+          <div class="kw-kpi-card__icon-wrapper" id="kpi-icon-truck"></div>
+          <div>
+            <div class="kw-kpi-card__value">10</div>
+            <div class="kw-kpi-card__label">Arriving today</div>
+          </div>
+        </div>
+
+        <div class="kw-kpi-card">
+          <div class="kw-kpi-card__icon-wrapper" id="kpi-icon-clock"></div>
+          <div>
+            <div class="kw-kpi-card__value">8</div>
+            <div class="kw-kpi-card__label">Pending approvals</div>
+          </div>
+        </div>
+
+        <div class="kw-kpi-card">
+          <div class="kw-kpi-card__icon-wrapper" id="kpi-icon-alert"></div>
+          <div>
+            <div class="kw-kpi-card__value" style="color: var(--kw-color-risk-red);">2</div>
+            <div class="kw-kpi-card__label">At risk items</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Deliveries Table / List Card -->
+      <div class="kw-card">
+        <div class="kw-card__header">
+          <div>
+            <h2 class="kw-card__title">Scheduled Gate Shipments</h2>
+            <p class="kw-card__subtitle">Showing active gate dispatch for November 22</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <span class="kw-chip kw-chip--filter">Gate A</span>
+            <span class="kw-chip kw-chip--filter">Today</span>
+          </div>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; margin-top: 12px;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--kw-color-hairline); text-align: left;">
+              <th style="padding: 12px 8px;" class="kw-caption">ITEM / ASSET</th>
+              <th style="padding: 12px 8px;" class="kw-caption">SUPPLIER</th>
+              <th style="padding: 12px 8px;" class="kw-caption">SCHEDULED</th>
+              <th style="padding: 12px 8px;" class="kw-caption">STATUS</th>
+              <th style="padding: 12px 8px; text-align: right;" class="kw-caption">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--kw-color-hairline-subtle);">
+              <td style="padding: 16px 8px;">
+                <div class="kw-b2" style="font-weight: 700;">Chiller CH-3</div>
+                <div class="kw-caption">HVAC Equipment · PO 4471-08</div>
+              </td>
+              <td style="padding: 16px 8px;" class="kw-b2">Trane Systems</td>
+              <td style="padding: 16px 8px;" class="kw-b2">Today, 09:00</td>
+              <td style="padding: 16px 8px;">
+                <span class="kw-chip kw-chip--gate">Gate A</span>
+              </td>
+              <td style="padding: 16px 8px; text-align: right;">
+                <button class="kw-btn kw-btn--primary kw-btn--sm" onclick="Kapwa.openSheet()">Review</button>
+              </td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid var(--kw-color-hairline-subtle);">
+              <td style="padding: 16px 8px;">
+                <div class="kw-b2" style="font-weight: 700;">Switchgear SWGR-1A</div>
+                <div class="kw-caption">Main Electrical Unit</div>
+              </td>
+              <td style="padding: 16px 8px;" class="kw-b2">Schneider Electric</td>
+              <td style="padding: 16px 8px;" class="kw-b2">Delayed 2 days</td>
+              <td style="padding: 16px 8px;">
+                <span class="kw-chip kw-chip--late">Late</span>
+              </td>
+              <td style="padding: 16px 8px; text-align: right;">
+                <button class="kw-btn kw-btn--outline kw-btn--sm" onclick="alert('Rescheduling...')">Reschedule</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding: 16px 8px;">
+                <div class="kw-b2" style="font-weight: 700;">Fire alarm FACP-1</div>
+                <div class="kw-caption">Safety System Module</div>
+              </td>
+              <td style="padding: 16px 8px;" class="kw-b2">Vertiv Corp</td>
+              <td style="padding: 16px 8px;" class="kw-b2">Dock 2 · 08:00</td>
+              <td style="padding: 16px 8px;">
+                <span class="kw-chip kw-chip--approved">Approved</span>
+              </td>
+              <td style="padding: 16px 8px; text-align: right;">
+                <button class="kw-btn kw-btn--ghost kw-btn--sm">Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Performance Trends Chart Card -->
+      <div class="kw-chart-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 class="kw-h4">Monthly Deliveries Trend</h3>
+            <p class="kw-caption">142 total completed deliveries in last 6 months</p>
+          </div>
+          <div class="kw-range-selector" style="margin-bottom: 0;">
+            <div class="kw-range-btn">1W</div>
+            <div class="kw-range-btn">1M</div>
+            <div class="kw-range-btn kw-range-btn--active">6M</div>
+            <div class="kw-range-btn">1Y</div>
+          </div>
+        </div>
+
+        <div class="kw-bar-chart" style="height: 180px;">
+          <div class="kw-bar-col"><div class="kw-bar" style="height: 120px;"></div><div class="kw-bar-label">Jun</div></div>
+          <div class="kw-bar-col"><div class="kw-bar" style="height: 80px;"></div><div class="kw-bar-label">Jul</div></div>
+          <div class="kw-bar-col"><div class="kw-bar" style="height: 105px;"></div><div class="kw-bar-label">Aug</div></div>
+          <div class="kw-bar-col kw-bar-col--selected"><div class="kw-bar" style="height: 145px;"></div><div class="kw-bar-label">Sep</div></div>
+          <div class="kw-bar-col"><div class="kw-bar" style="height: 95px;"></div><div class="kw-bar-label">Oct</div></div>
+          <div class="kw-bar-col"><div class="kw-bar" style="height: 155px;"></div><div class="kw-bar-label">Nov</div></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Column 3: Stats & Actions Side Panel -->
+    <aside style="display: flex; flex-direction: column; gap: 24px;">
+
+      <!-- TC-1 Crane Lift Window -->
+      <div class="kw-card" style="padding: 24px;">
+        <h3 class="kw-card__title" style="font-size: 16px;">TC-1 Crane Window</h3>
+        <p class="kw-caption" style="margin-bottom: 12px;">Used 4h 10m of 6h · Steel L3 at 10:00</p>
+        <div class="kw-progress-linear">
+          <div class="kw-progress-linear__bar" style="width: 60%;"></div>
+        </div>
+      </div>
+
+      <!-- Committed Value Donut Summary -->
+      <div class="kw-card" style="padding: 24px; text-align: center;">
+        <h3 class="kw-card__title" style="font-size: 16px; margin-bottom: 4px;">Committed Value</h3>
+        <p class="kw-caption" style="margin-bottom: 16px;">Fiscal Year 2026</p>
+
+        <div style="margin: 0 auto 16px; position: relative; width: 140px; height: 140px;">
+          <svg viewBox="0 0 100 100" style="transform: rotate(-90deg); width: 100%; height: 100%;">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--kw-color-studio-mist)" stroke-width="12"></circle>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--kw-color-pricing-blue)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="80"></circle>
+          </svg>
+          <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <span class="kw-caption" style="font-size: 11px;">Total</span>
+            <span class="kw-h3" style="font-size: 18px;">$18.4M</span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+          <span class="kw-caption">Committed: <strong>$14.2M</strong></span>
+          <span class="kw-caption">Invoiced: <strong>$4.2M</strong></span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="kw-card" style="padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+        <h3 class="kw-card__title" style="font-size: 16px; margin-bottom: 8px;">Quick Dispatch</h3>
+        <button class="kw-btn kw-btn--primary kw-btn--full" onclick="Kapwa.openSheet()">Approve Batch</button>
+        <button class="kw-btn kw-btn--outline kw-btn--full">Download Gate Passes</button>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Modal Sheet -->
+  <div id="confirm-delivery-sheet" class="kw-sheet-backdrop">
+    <div class="kw-sheet">
+      <div class="kw-sheet__header">
+        <h3 class="kw-sheet__title">Confirm delivery</h3>
+      </div>
+      <div class="kw-sheet__supplier-card">
+        <div class="kw-avatar-badge">TR</div>
+        <div>
+          <div class="kw-b1" style="font-weight: 700;">Luis Romero</div>
+          <div class="kw-caption">Trane · PO 4471-08</div>
+        </div>
+      </div>
+      <div class="kw-sheet__details">
+        <div class="kw-sheet__item-name">Chiller CH-3</div>
+        <div class="kw-sheet__item-meta">Gate A · Tue 09:00</div>
+      </div>
+      <div class="kw-step-indicator" style="margin-bottom: 20px;">
+        <div class="kw-step-segment kw-step-segment--active"></div>
+        <div class="kw-step-segment kw-step-segment--active"></div>
+        <div class="kw-step-segment"></div>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button class="kw-btn kw-btn--dark kw-btn--full" onclick="alert('Confirmed!'); Kapwa.closeSheet();">Confirm</button>
+        <button class="kw-btn kw-btn--outline" onclick="Kapwa.closeSheet()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/kapwa.js"></script>
+  <script type="module">
+    import KapwaIcons from '../../js/utils/icons.js';
+    document.getElementById('side-home').innerHTML = KapwaIcons.get('home', 18);
+    document.getElementById('side-deliveries').innerHTML = KapwaIcons.get('truck', 18);
+    document.getElementById('side-suppliers').innerHTML = KapwaIcons.get('users', 18);
+    document.getElementById('side-map').innerHTML = KapwaIcons.get('table', 18);
+    document.getElementById('side-audit').innerHTML = KapwaIcons.get('clock', 18);
+
+    document.getElementById('kpi-icon-truck').innerHTML = KapwaIcons.get('truck', 26);
+    document.getElementById('kpi-icon-clock').innerHTML = KapwaIcons.get('clock', 26);
+    document.getElementById('kpi-icon-alert').innerHTML = KapwaIcons.get('alert', 26);
+  </script>
+</body>
+</html>

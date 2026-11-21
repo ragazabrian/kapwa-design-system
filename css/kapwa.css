@@ -1,0 +1,15 @@
+/**
+ * Kapwa Design System - Master Stylesheet
+ * Integrates all modules into a single entry point
+ */
+@import './tokens.css';
+@import './reset.css';
+@import './typography.css';
+@import './buttons.css';
+@import './controls.css';
+@import './cards.css';
+@import './tabs.css';
+@import './chips.css';
+@import './kpi.css';
+@import './charts.css';
+@import './sheet.css';

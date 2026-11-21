@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapwa Design System · Open-Standard Multi-Platform UI</title>
+  <link rel="stylesheet" href="./css/kapwa.css">
+  <style>
+    /* Documentation Portal Styling */
+    .doc-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 32px 24px 96px;
+    }
+
+    .doc-hero {
+      background: linear-gradient(135deg, rgba(0, 113, 227, 0.08) 0%, rgba(85, 54, 217, 0.08) 100%);
+      border: 1px solid var(--kw-color-hairline);
+      border-radius: var(--kw-radius-card);
+      padding: 64px 48px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background-color: var(--kw-color-pricing-blue);
+      color: #ffffff;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .doc-section-header {
+      margin: 64px 0 24px;
+      border-bottom: 2px solid var(--kw-color-hairline);
+      padding-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .code-preview-card {
+      background-color: var(--kw-color-surface-card);
+      border-radius: var(--kw-radius-tile);
+      border: 1px solid var(--kw-color-hairline);
+      box-shadow: var(--kw-shadow-card);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .code-preview-body {
+      padding: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      background-color: var(--kw-color-surface-card);
+    }
+
+    .code-tabs {
+      display: flex;
+      background-color: var(--kw-color-studio-mist);
+      border-top: 1px solid var(--kw-color-hairline);
+      border-bottom: 1px solid var(--kw-color-hairline);
+    }
+
+    .code-tab-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--kw-color-slate);
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: all var(--kw-transition-fast);
+    }
+
+    .code-tab-btn:hover {
+      color: var(--kw-color-ink);
+    }
+
+    .code-tab-btn--active {
+      color: var(--kw-color-pricing-blue);
+      border-bottom: 2px solid var(--kw-color-pricing-blue);
+      background-color: var(--kw-color-surface-card);
+    }
+
+    .code-block {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      padding: 20px 24px;
+      font-family: var(--kw-font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .token-swatch {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      background-color: var(--kw-color-studio-mist);
+      border-radius: 16px;
+    }
+
+    .token-color-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    /* Fixed Navigation */
+    .doc-nav-sticky {
+      position: sticky;
+      top: 0;
+      background-color: var(--kw-color-glass-content);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--kw-color-hairline);
+      z-index: 999;
+      padding: 16px 24px;
+    }
+
+    .doc-nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      background-color: var(--kw-color-studio-mist);
+      color: var(--kw-color-ink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header class="doc-nav-sticky">
+    <div class="doc-nav-inner">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 38px; height: 38px; border-radius: 10px; background-color: var(--kw-color-pricing-blue); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px;">
+          K
+        </div>
+        <div>
+          <strong class="kw-h4" style="font-size: 17px;">Kapwa Design System</strong>
+          <span class="kw-caption" style="display: block; font-size: 11px;">BetterGov.ph Compatible · Pure HTML · CSS · JS · Python</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="#components" class="kw-btn kw-btn--ghost kw-btn--sm">Components</a>
+        <a href="#tokens" class="kw-btn kw-btn--ghost kw-btn--sm">Tokens</a>
+        <a href="#platforms" class="kw-btn kw-btn--ghost kw-btn--sm">Multi-Platform</a>
+        <a href="./examples/mobile/index.html" class="kw-btn kw-btn--outline kw-btn--sm">📱 Mobile Sheet</a>
+        <a href="./examples/web/dashboard.html" class="kw-btn kw-btn--outline kw-btn--sm">💻 Web Portal</a>
+        <button class="kw-btn kw-btn--primary kw-btn--sm" onclick="KapwaTheme.toggle()">
+          Toggle Theme
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="doc-container">
+
+    <!-- Hero Section -->
+    <section class="doc-hero">
+      <div class="doc-badge">Filipino Design Principles · Universal Standards</div>
+      <h1 class="kw-display-lg" style="margin-bottom: 16px;">Kapwa Design System</h1>
+      <p class="kw-b1" style="max-width: 780px; color: var(--kw-color-slate); font-size: 18px; line-height: 1.6; margin-bottom: 32px;">
+        A high-performance, accessible, framework-agnostic design system built for Philippine public services, enterprise operations, and digital portals. Engineered in pure <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>Python</strong> — no TSX, TypeScript, or heavy bundlers required.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+        <a href="./examples/mobile/index.html" class="kw-btn kw-btn--primary kw-btn--lg">
+          Explore Mobile Component Sheet →
+        </a>
+        <a href="./examples/web/dashboard.html" class="kw-btn kw-btn--outline kw-btn--lg">
+          Launch Web Dashboard
+        </a>
+        <button class="kw-btn kw-btn--ghost kw-btn--lg" onclick="Kapwa.openSheet()">
+          Test Confirm Modal Sheet
+        </button>
+      </div>
+
+      <div style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
+        <span class="platform-pill">🌐 Web (Modern HTML5 & CSS3)</span>
+        <span class="platform-pill">📱 Mobile (Touch PWA & Viewport)</span>
+        <span class="platform-pill">🖥 Desktop (Python Tkinter Native)</span>
+        <span class="platform-pill">🐍 Python (Jinja2 & Server Component API)</span>
+      </div>
+    </section>
+
+    <!-- Design Values Section -->
+    <section>
+      <div class="doc-section-header">
+        <h2 class="kw-h2">Design Values (Kapwa Ethos)</h2>
+        <span class="kw-caption">Rooted in BetterGov.ph Community Guidelines</span>
+      </div>
+
+      <div class="doc-grid">
+        <div class="kw-card">
+          <h3 class="kw-h3" style="font-size: 20px; color: var(--kw-color-pricing-blue); margin-bottom: 8px;">1. Malasakit (Compassion)</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate);">
+            Designed for real human needs. Interfaces must be accessible, high-contrast, effortless to navigate, and reliable on low-bandwidth networks.
+          </p>
+        </div>
+
+        <div class="kw-card">
+          <h3 class="kw-h3" style="font-size: 20px; color: var(--kw-color-pricing-blue); margin-bottom: 8px;">2. Bayanihan (Collaboration)</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate);">
+            Standardized components shared across civic organizations and private enterprise, lowering development friction and elevating user trust.
+          </p>
+        </div>
+
+        <div class="kw-card">
+          <h3 class="kw-h3" style="font-size: 20px; color: var(--kw-color-pricing-blue); margin-bottom: 8px;">3. Universal Clarity</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate);">
+            Zero dependency lock-in. Clean HTML/CSS/JS/Python accessible to all developers regardless of whether they use React, Vue, Django, Flask, or plain static HTML.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Tokens Section -->
+    <section id="tokens">
+      <div class="doc-section-header">
+        <h2 class="kw-h2">Design Tokens</h2>
+        <span class="kw-caption">Recreated from Figma Playground Node 895:15020</span>
+      </div>
+
+      <div class="doc-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="token-swatch">
+          <div class="token-color-circle" style="background-color: var(--kw-color-pricing-blue);"></div>
+          <div>
+            <div class="kw-b2" style="font-weight: 700;">Pricing Blue</div>
+            <div class="kw-caption">#0071E3 · Primary</div>
+          </div>
+        </div>
+
+        <div class="token-swatch">
+          <div class="token-color-circle" style="background-color: var(--kw-color-apple-blue);"></div>
+          <div>
+            <div class="kw-b2" style="font-weight: 700;">Apple Blue</div>
+            <div class="kw-caption">#0066CC · Interactive</div>
+          </div>
+        </div>
+
+        <div class="token-swatch">
+          <div class="token-color-circle" style="background-color: var(--kw-color-risk-red);"></div>
+          <div>
+            <div class="kw-b2" style="font-weight: 700;">Risk Red</div>
+            <div class="kw-caption">#D70015 · Destructive</div>
+          </div>
+        </div>
+
+        <div class="token-swatch">
+          <div class="token-color-circle" style="background-color: var(--kw-color-primary-purple);"></div>
+          <div>
+            <div class="kw-b2" style="font-weight: 700;">Primary Purple</div>
+            <div class="kw-caption">#5536D9 · Accent</div>
+          </div>
+        </div>
+
+        <div class="token-swatch">
+          <div class="token-color-circle" style="background-color: var(--kw-color-ink);"></div>
+          <div>
+            <div class="kw-b2" style="font-weight: 700;">Ink</div>
+            <div class="kw-caption">#1D1D1F · Text Primary</div>
+          </div>
+        </div>
+
+        <div class="token-swatch">
+          <div class="token-color-circle" style="background-color: var(--kw-color-slate);"></div>
+          <div>
+            <div class="kw-b2" style="font-weight: 700;">Slate</div>
+            <div class="kw-caption">#5F5F64 · Muted Text</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Component Playground -->
+    <section id="components">
+      <div class="doc-section-header">
+        <h2 class="kw-h2">Component Library</h2>
+        <span class="kw-caption">Live Interactive Previews & Code Snippets</span>
+      </div>
+
+      <!-- 1. Buttons -->
+      <h3 class="kw-h3" style="margin-bottom: 12px;">1. Buttons (Pill Variants)</h3>
+      <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+        32px/47px pill buttons with primary pricing blue, liquid glass outline, text link, and destructive risk red.
+      </p>
+
+      <div class="code-preview-card">
+        <div class="code-preview-body">
+          <button class="kw-btn kw-btn--primary">Approve</button>
+          <button class="kw-btn kw-btn--outline">Reschedule</button>
+          <button class="kw-btn kw-btn--ghost">View all</button>
+          <button class="kw-btn kw-btn--destructive">Reject</button>
+          <button class="kw-btn kw-btn--dark">Confirm</button>
+        </div>
+        <div class="code-tabs">
+          <button class="code-tab-btn code-tab-btn--active">HTML</button>
+          <button class="code-tab-btn">Web Component</button>
+          <button class="code-tab-btn">Python</button>
+        </div>
+        <pre class="code-block"><code>&lt;!-- Pure HTML &amp; CSS --&gt;
+&lt;button class="kw-btn kw-btn--primary"&gt;Approve&lt;/button&gt;
+&lt;button class="kw-btn kw-btn--outline"&gt;Reschedule&lt;/button&gt;
+&lt;button class="kw-btn kw-btn--ghost"&gt;View all&lt;/button&gt;
+&lt;button class="kw-btn kw-btn--destructive"&gt;Reject&lt;/button&gt;</code></pre>
+      </div>
+
+      <!-- 2. Form Controls -->
+      <h3 class="kw-h3" style="margin-bottom: 12px;">2. Form Controls (Switch, Checkbox, Radio)</h3>
+      <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+        iOS-inspired fluid switches with 3:1 accessibility ratio, custom checkboxes, and radial buttons.
+      </p>
+
+      <div class="code-preview-card">
+        <div class="code-preview-body" style="gap: 32px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <kapwa-switch checked></kapwa-switch>
+            <span class="kw-b2">Active Switch</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <kapwa-switch></kapwa-switch>
+            <span class="kw-b2">Inactive Switch</span>
+          </div>
+          <label class="kw-checkbox">
+            <input type="checkbox" checked>
+            <span class="kw-checkbox__box">
+              <svg class="kw-checkbox__icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span class="kw-b2">Checkbox</span>
+          </label>
+          <label class="kw-radio">
+            <input type="radio" name="demo-radio" checked>
+            <span class="kw-radio__disc"><span class="kw-radio__dot"></span></span>
+            <span class="kw-b2">Radio 1</span>
+          </label>
+          <label class="kw-radio">
+            <input type="radio" name="demo-radio">
+            <span class="kw-radio__disc"><span class="kw-radio__dot"></span></span>
+            <span class="kw-b2">Radio 2</span>
+          </label>
+        </div>
+        <div class="code-tabs">
+          <button class="code-tab-btn code-tab-btn--active">HTML</button>
+          <button class="code-tab-btn">JavaScript</button>
+          <button class="code-tab-btn">Python</button>
+        </div>
+        <pre class="code-block"><code>&lt;!-- Toggle Switch --&gt;
+&lt;kapwa-switch checked&gt;&lt;/kapwa-switch&gt;
+
+&lt;!-- Python Backend Helper --&gt;
+# python
+from kapwa import switch, button
+html_switch = switch(checked=True, onchange="onToggle(event)")</code></pre>
+      </div>
+
+      <!-- 3. Floating Pill Tab Bar -->
+      <h3 class="kw-h3" style="margin-bottom: 12px;">3. Floating Pill Tab Bar</h3>
+      <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+        Frosted glass dock navigation with 23px backdrop blur and animated sliding indicator pill.
+      </p>
+
+      <div class="code-preview-card">
+        <div class="code-preview-body" style="justify-content: center; background-color: var(--kw-color-bg-canvas);">
+          <kapwa-tabbar active-index="0"></kapwa-tabbar>
+        </div>
+        <div class="code-tabs">
+          <button class="code-tab-btn code-tab-btn--active">HTML / Web Component</button>
+          <button class="code-tab-btn">Python</button>
+        </div>
+        <pre class="code-block"><code>&lt;!-- Web Component with smooth tab sliding --&gt;
+&lt;kapwa-tabbar active-index="0"&gt;&lt;/kapwa-tabbar&gt;</code></pre>
+      </div>
+
+      <!-- 4. KPI Stat Metrics -->
+      <h3 class="kw-h3" style="margin-bottom: 12px;">4. KPI & Metric Counters</h3>
+      <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+        Clear, bold numerical metrics for logistics, supply chain, and public administration dashboards.
+      </p>
+
+      <div class="code-preview-card">
+        <div class="code-preview-body">
+          <div class="kw-kpi-grid" style="max-width: 680px;">
+            <div class="kw-kpi-card">
+              <div class="kw-kpi-card__icon-wrapper" id="kpi-demo-truck"></div>
+              <div>
+                <div class="kw-kpi-card__value">10</div>
+                <div class="kw-kpi-card__label">Arriving today</div>
+              </div>
+            </div>
+            <div class="kw-kpi-card">
+              <div class="kw-kpi-card__icon-wrapper" id="kpi-demo-clock"></div>
+              <div>
+                <div class="kw-kpi-card__value">8</div>
+                <div class="kw-kpi-card__label">Pending approvals</div>
+              </div>
+            </div>
+            <div class="kw-kpi-card">
+              <div class="kw-kpi-card__icon-wrapper" id="kpi-demo-alert"></div>
+              <div>
+                <div class="kw-kpi-card__value" style="color: var(--kw-color-risk-red);">2</div>
+                <div class="kw-kpi-card__label">At risk</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code-tabs">
+          <button class="code-tab-btn code-tab-btn--active">HTML</button>
+          <button class="code-tab-btn">Python</button>
+        </div>
+        <pre class="code-block"><code>&lt;!-- KPI Metric Card --&gt;
+&lt;div class="kw-kpi-card"&gt;
+  &lt;div class="kw-kpi-card__icon-wrapper"&gt;...&lt;/div&gt;
+  &lt;div class="kw-kpi-card__value"&gt;10&lt;/div&gt;
+  &lt;div class="kw-kpi-card__label"&gt;Arriving today&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <!-- 5. Status Chips -->
+      <h3 class="kw-h3" style="margin-bottom: 12px;">5. Status Chips</h3>
+      <div class="code-preview-card">
+        <div class="code-preview-body">
+          <span class="kw-chip kw-chip--gate">Gate A</span>
+          <span class="kw-chip kw-chip--late">Late</span>
+          <span class="kw-chip kw-chip--approved">Approved</span>
+          <span class="kw-chip kw-chip--filter">
+            Gate A
+            <span class="kw-chip__remove" onclick="this.parentElement.remove()">✕</span>
+          </span>
+        </div>
+        <pre class="code-block"><code>&lt;span class="kw-chip kw-chip--gate"&gt;Gate A&lt;/span&gt;
+&lt;span class="kw-chip kw-chip--late"&gt;Late&lt;/span&gt;
+&lt;span class="kw-chip kw-chip--approved"&gt;Approved&lt;/span&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Multi-Platform Section -->
+    <section id="platforms">
+      <div class="doc-section-header">
+        <h2 class="kw-h2">Multi-Platform Implementations</h2>
+        <span class="kw-caption">Web · Mobile · Desktop · Python</span>
+      </div>
+
+      <div class="doc-grid">
+        <div class="kw-card">
+          <h3 class="kw-card__title" style="margin-bottom: 8px;">🌐 Web Applications</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+            Standard HTML5, CSS3, and ES6 custom elements compatible with all modern browsers, SSR engines, and static site generators.
+          </p>
+          <a href="./examples/web/dashboard.html" class="kw-btn kw-btn--primary kw-btn--sm">View Web Portal</a>
+        </div>
+
+        <div class="kw-card">
+          <h3 class="kw-card__title" style="margin-bottom: 8px;">📱 Mobile Applications</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+            Complete 1:1 mobile sheet from the Figma playground. Touch navigation, quick action sheets, and PWA-ready layout.
+          </p>
+          <a href="./examples/mobile/index.html" class="kw-btn kw-btn--primary kw-btn--sm">View Mobile Sheet</a>
+        </div>
+
+        <div class="kw-card">
+          <h3 class="kw-card__title" style="margin-bottom: 8px;">🖥 Desktop (Python Tkinter)</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+            Native Python desktop application styling without Electron or Node. Works instantly on macOS, Windows, and Linux.
+          </p>
+          <pre class="code-block" style="padding: 10px 14px; font-size: 11px; margin-bottom: 12px;"><code>python3 examples/desktop/run_desktop.py</code></pre>
+        </div>
+
+        <div class="kw-card">
+          <h3 class="kw-card__title" style="margin-bottom: 8px;">🐍 Python Server &amp; Jinja2</h3>
+          <p class="kw-b2" style="color: var(--kw-color-slate); margin-bottom: 16px;">
+            Server-side Python library with token exports and HTML component helpers for Flask, FastAPI, and Django.
+          </p>
+          <pre class="code-block" style="padding: 10px 14px; font-size: 11px; margin-bottom: 12px;"><code>from kapwa import button, card, TOKENS</code></pre>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Confirm Delivery Modal Sheet -->
+  <div id="confirm-delivery-sheet" class="kw-sheet-backdrop">
+    <div class="kw-sheet">
+      <div class="kw-sheet__header">
+        <h3 class="kw-sheet__title">Confirm delivery</h3>
+      </div>
+      <div class="kw-sheet__supplier-card">
+        <div class="kw-avatar-badge">TR</div>
+        <div>
+          <div class="kw-b1" style="font-weight: 700;">Luis Romero</div>
+          <div class="kw-caption">Trane · PO 4471-08</div>
+        </div>
+      </div>
+      <div class="kw-sheet__details">
+        <div class="kw-sheet__item-name">Chiller CH-3</div>
+        <div class="kw-sheet__item-meta">Gate A · Tue 09:00</div>
+      </div>
+      <div class="kw-step-indicator" style="margin-bottom: 20px;">
+        <div class="kw-step-segment kw-step-segment--active"></div>
+        <div class="kw-step-segment kw-step-segment--active"></div>
+        <div class="kw-step-segment"></div>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button class="kw-btn kw-btn--dark kw-btn--full" onclick="alert('Delivery Confirmed!'); Kapwa.closeSheet();">Confirm</button>
+        <button class="kw-btn kw-btn--outline" onclick="Kapwa.closeSheet()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/kapwa.js"></script>
+  <script type="module">
+    import KapwaIcons from './js/utils/icons.js';
+    document.getElementById('kpi-demo-truck').innerHTML = KapwaIcons.get('truck', 26);
+    document.getElementById('kpi-demo-clock').innerHTML = KapwaIcons.get('clock', 26);
+    document.getElementById('kpi-demo-alert').innerHTML = KapwaIcons.get('alert', 26);
+  </script>
+</body>
+</html>

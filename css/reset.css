@@ -1,0 +1,56 @@
+/**
+ * Kapwa Design System - Base Reset
+ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: var(--kw-font-sans);
+  background-color: var(--kw-color-bg-canvas);
+  color: var(--kw-color-ink);
+  transition: background-color var(--kw-transition-normal), color var(--kw-transition-normal);
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-size: var(--kw-type-b1-size);
+}
+
+img, svg, picture, video {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: var(--kw-color-apple-blue);
+  text-decoration: none;
+  transition: color var(--kw-transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--kw-color-pricing-blue);
+  outline-offset: 2px;
+}
